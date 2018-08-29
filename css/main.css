@@ -1,0 +1,607 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+html, body{
+	height: 100%;
+}
+.hidden{
+	background-color: orange;
+}
+
+.data-wrapper{
+	height: 100%;
+	width: 600px;
+	margin: auto;
+	display: block;
+	padding-bottom: 4px;
+	margin-top: 20px;
+}
+
+.data-question img, .data-answer img{
+	width: 230px;
+}
+.data-row{
+	height: auto;
+	width: 100%;
+	display: flex;
+	position: relative;
+	padding: 2px;
+	min-height: 150px;
+	overflow: hidden;
+	
+}
+
+
+.data-question, .data-answer{
+	max-width: 294px;
+	min-width: 294px;
+	width: 294px;
+	margin: 2px;
+	min-height: 150px;
+	 padding: 15px;
+	 padding-bottom: 100%;
+    margin-bottom: -100%;
+    background-color: white;
+    font-size: 18px;
+    display: inline-block;
+    position: relative;
+    flex: 1;
+   
+}
+.data-question{
+	float: left;
+}
+.data-answer{
+	float: right;
+}
+.hider{
+	opacity: 0;
+}
+
+
+
+
+
+.data-title{
+	width: 100%;
+	height: 40px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 25px;
+	color: white;
+	text-transform: uppercase;
+	position: relative;
+}
+.data-heading{
+	width: 100%;
+	height: 30px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	color: white;
+	position: relative;
+}
+/*//////////////////////////////////////////////////////buttons///////////////////////////////////////////////////////*/
+
+.button-questions{
+	border-radius: 100%;
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	height: 80px;
+	width: 80px;
+	border: black 5px solid;
+	cursor: pointer;
+}
+
+.button-answers{
+	border-radius: 100%;
+	background-color: red;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	height: 80px;
+	width: 80px;
+	border: black 5px solid;
+	cursor: pointer;
+
+}
+
+.button-show-active{
+	border-radius: 100%;
+	background-color: white;
+	height: 70px;
+	width: 70px;
+	margin: auto;
+	cursor: pointer;
+}
+.button-edit-table{
+	border-radius: 100%;
+	position: fixed;
+	top: 100px;
+	left: 10px;
+	height: 80px;
+	width: 80px;
+	color: white;
+	text-align: center;
+	padding-top: 20px;
+	user-select: none;
+	cursor: pointer;
+}
+
+.edit{
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+  opacity: 0.05;
+  background-image: url("https://cdn1.iconfinder.com/data/icons/flat-web-browser/100/edit-button-512.png");
+  background-size: cover;
+  background-position: center center;
+  transition: opacity 0.3s ease;
+  border-radius: 10%;
+
+}
+.edit:hover{
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.textblock{
+  position: relative;
+  display: none; 
+  max-width: 294px;
+	min-width: 294px;
+	width: 294px;
+	margin: 2px;
+
+}
+.textblockhead{
+	  position: relative;
+  display: none; 
+  max-width: 592px;
+	min-width: 592px;
+	width: 592px;
+	height: 100%;
+	
+}
+
+
+
+textarea{
+  width: 100%;
+ height: 105%;
+  margin: 0;
+  padding: 10px;
+  color: black;
+
+}
+.titleedit{
+	padding: 0;
+	text-align: center;
+}
+.savecardquestion, .savecardanswer, .savecardanswerhead, .savetitle, .saveheader{
+	height:25px;
+	width: 25px;
+	background-color: cyan;
+	cursor: pointer;
+	float: right;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	opacity: 0.3;
+	transition: opacity 0.2s ease;
+	background-image: URL("http://pluspng.com/img-png/save-button-png-save-button-icon-512.png");
+	background-size: cover;
+	background-position: center center; 
+	border-radius: 10%;
+}
+.savecardquestion:hover, .savecardanswer:hover, .savecardanswerhead:hover, .savetitle:hover, .saveheader:hover{
+	opacity: 1;
+	transition: opacity 0.2s ease;
+}
+.deletecard{
+	height:25px;
+  	width: 25px;
+  	background-color: red;
+  	cursor: pointer;
+ 	display: inline-block;
+  	position: absolute;
+ 	right: 27px;
+  	top: 2px;
+  	color: white;
+  	font-weight: bold;
+  	font-size: 12px;
+  	text-align: center;
+  	padding-top: 2px;
+  	opacity: 0.3;
+	transition: opacity 0.2s ease;
+	background-image: URL("https://www.materialui.co/materialIcons/action/delete_white_192x192.png");
+	background-size: cover;
+	background-position: center center; 
+	border-radius: 10%;
+}
+.deletecard:hover{
+	opacity: 1;
+	transition: opacity 0.2s ease;
+}
+.upcard{
+	height:25px;
+  	width: 25px;
+  	background-color: green;
+  	cursor: pointer;
+ 	display: inline-block;
+  	position: absolute;
+ 	right: 52px;
+  	top: 2px;
+  	color: white;
+  	font-weight: bold;
+  	font-size: 16px;
+  	text-align: center;
+  	padding-top: 2px;
+  	opacity: 0.3;
+	transition: opacity 0.2s ease;
+	background-image: URL("https://retrofitaccelerator.cityofnewyork.us/sites/default/files/public/arrow_up.png");
+	background-size: cover;
+	background-position: center center; 
+	border-radius: 10%;
+}
+.upcard:hover{
+	opacity: 1;
+	transition: opacity 0.2s ease;
+}
+.downcard{
+	height:25px;
+  	width: 25px;
+  	background-color: green;
+  	cursor: pointer;
+ 	display: inline-block;
+  	position: absolute;
+ 	right: 77px;
+  	top: 2px;
+  	color: white;
+  	font-weight: bold;
+  	font-size: 16px;
+  	text-align: center;
+  	padding-top: 1px;
+  	transform: rotate(180deg);
+  	opacity: 0.3;
+	transition: opacity 0.2s ease;
+	background-image: URL("https://retrofitaccelerator.cityofnewyork.us/sites/default/files/public/arrow_up.png");
+	background-size: cover;
+	background-position: center center; 
+	border-radius: 10%;
+
+  }
+  .downcard:hover{
+	opacity: 1;
+	transition: opacity 0.2s ease;
+}
+  .addimagecard{
+	height:25px;
+  	width: 100px;
+  	background-color: yellow;
+  	cursor: pointer;
+ 	display: inline-block;
+  	position: absolute;
+ 	right: 0;
+  	bottom: 2px;
+  	color: black;
+  	font-weight: bold;
+  	font-size: 5px;
+  	text-align: center;
+  	padding-top: 1px;
+  	overflow: hidden;
+
+  }
+
+.addButtons{
+	width: 600px;
+	margin: auto;
+	display: block;
+	background-color: white;
+	height: 50px;
+
+}
+
+.add, .addHead, .addTitle, .addImage{
+	font-size: 22px;
+	height: 100%;
+	border: 0;
+	float: left;
+	margin: 0;
+	width: 200px;
+	cursor: pointer;
+	text-align: center;
+	background-color: #aaa;
+	padding: 10px;
+	color: white;
+
+}
+.add:hover,  .addHead:hover,  .addTitle:hover, .addImage:hover{
+	background-color: #ccc;
+}
+
+button:focus {
+	outline:0;
+}
+button:hover{
+	cursor: pointer;
+}
+
+.highlight{
+	position: fixed;
+	top: 192px;
+	left: 10px;
+	background-image: url("http://cliparts.co/cliparts/dc9/Kkr/dc9Kkrxqi.png");
+	background-size: 57%;
+	background-color: white;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 80px;
+	width: 80px;
+	 border-radius: 100%;
+	 filter: invert(0%);
+	 transition: border-radius 0.2s ease, filter 0.3s ease; 
+	 cursor: pointer;
+}
+
+
+
+.highlighter{
+	border-radius: 100%;
+	background-color: black;
+	cursor: pointer;
+}
+
+.highlighter{
+	background-image: none;
+	background-color: black;
+	border-radius: 100%;
+}
+
+.black{
+  background-color:grey;
+  transition:  background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.blacker{
+  color: white;
+  background-color: black;
+   transition:  background-color 0s ease;
+}
+
+#highlighted{
+	color: white;
+	position: fixed;
+	top: 25px;
+	font-size: 22px;
+	left: 18px;
+	text-align: center;
+	width: 2em;
+	background-color: black;
+	margin: auto;
+	cursor: pointer;
+}
+
+/*hide units*/
+.UnitsRow{ 
+}
+.UnitSelect{
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+	border-width: 4px;
+	border-style: solid;
+	background-color: white;
+	float:left;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.UnitWords p{
+  color: white;
+  font-size: 25px;
+  padding-top: 5px;
+  margin-left: 10px;
+}
+
+.HideUnit{
+	display: none;
+}
+
+#Units{
+	margin:auto;
+	 position: relative;
+	 display:block;
+	 width: 600px;
+}
+.UnitOneUnselect{
+	background-color:rgba(0, 0, 0, 0);
+}
+.deselectUnit{
+	color: white;
+	display: block;
+	width: 150px;
+	margin: auto;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	font-size: 22px;
+	margin-top: 20px;
+
+}
+h1{
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 40px;
+	color: white;
+}
+/* Style the Image Used to Trigger the Modal */
+.modal.imageClass {
+    cursor: default;
+    transition: 0.3s;
+}
+
+.modal .imageClass:hover {opacity: 1; cursor: default;}
+.imageClass {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.imageClass:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.75); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 500px;
+
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption { 
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: 1px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 80px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+
+.editColors{
+	display: block; 
+	position: fixed; 
+	z-index: 100; 
+	 right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+	top: 250px;
+	line-height: 40px;
+	font-size: 20px;
+	display: none;
+	padding: 10px;
+	box-shadow: 5px 5px 10px black;
+
+	
+}
+.editColors h1{
+	border: 0;
+	margin-bottom: 15px;
+	margin-top: 15px;
+	text-transform: none;
+	width: 596px;
+	margin: 2px;
+	
+	
+}
+.editColors form{
+	margin-left: 40px;
+	margin-top: -20px;
+}
+.editColors #save{
+	width: 60px; 
+	height: 60px;
+	border-radius: 10%;
+	border: 0;
+	font-size: 20px;
+	cursor: pointer;
+	margin: auto;
+	display: block;
+	margin-top: 10px;
+	text-align: center;
+	margin-bottom: 15px;
+}
+#closeColors{
+	width: 40px; 
+	height: 40px;
+	color: white;
+	border-radius: 100%;
+	font-size: 20px;
+	text-align: center;
+	position: relative;
+	display: inline-block;
+	left: 510px;
+	top: -53px;
+	padding-left: 0px;
+	padding-top: -10px;
+	cursor: pointer;
+	z-index: 101;
+	display: none;
+}
+.editColors #save:focus {outline:0;}
+
+.colorsClose{
+	display: none;
+}
+
+/*login screen*/
+
+
+

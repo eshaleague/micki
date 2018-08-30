@@ -459,7 +459,7 @@ h1{
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 200; /* Sit on top */
     padding-top: 100px; /* Location of the box */
     left: 0;
     top: 0;
@@ -536,7 +536,7 @@ h1{
 .editColors{
 	display: block; 
 	position: fixed; 
-	z-index: 100; 
+	z-index: 200; 
 	 right: 0;
     left: 0;
     margin-right: auto;
@@ -549,6 +549,7 @@ h1{
 	padding: 10px;
 	box-shadow: 5px 5px 10px black;
 
+
 	
 }
 .editColors h1{
@@ -558,6 +559,7 @@ h1{
 	text-transform: none;
 	width: 596px;
 	margin: 2px;
+	text-align: center;
 	
 	
 }
@@ -592,7 +594,7 @@ h1{
 	padding-left: 0px;
 	padding-top: -10px;
 	cursor: pointer;
-	z-index: 101;
+	z-index: 201;
 	display: none;
 }
 .editColors #save:focus {outline:0;}
@@ -602,6 +604,155 @@ h1{
 }
 
 /*login screen*/
+@media only screen and (max-width: 800px){
+	.data-wrapper{
+		width: 100%;
+	}
+	.data-question, .data-answer{
+		max-width: 49.3%;
+		min-width: 49.3%;
+		font-size: 15px;
+		line-height: 18px;
+		
+	}
+	.data-title{
+		font-size: 20px;
+		height: auto;
+	}
+	.data-heading{
+		font-size: 18px;
+	}
+	.data-question img, .data-answer img{
+	width: 100px;
+	}
+	#Units{
+	 width: 90%;
+	}
+	.UnitWords p{
+	  font-size: 20px;
+	}
+	.addButtons{
+	width: 90%;
+	height: 45px;
 
+	}
+
+	.add, .addHead, .addTitle, .addImage{
+		font-size: 15px;
+		width: 33.33%;
+
+	}
+	.button-questions{
+		bottom: 10px;
+		left: 10px;
+		height: 70px;
+		width: 70px;
+		border: black 5px solid;
+		z-index: 100;
+		opacity: 0.4;
+		
+	}
+
+	.button-answers{
+		bottom: 10px;
+		right: 10px;
+		height: 70px;
+		width: 70px;
+		border: black 5px solid;
+		z-index: 100;
+		opacity: 0.4;
+
+	}
+
+	.button-show-active{
+		height: 60px;
+		width: 60px;
+		z-index: 100;
+	}
+	.button-edit-table{
+		position: fixed;
+		top: 90px;
+		left: 10px;
+		height: 70px;
+		width: 70px;
+		padding-top: 13px;
+		z-index: 100;
+		opacity: 0.4;
+	}
+	.highlight{
+		position: fixed;
+		top: 10px;
+		left: 90px;
+		height: 70px;
+		width: 70px;
+		z-index: 100;
+		opacity: 0.5;
+
+	}
+	#highlighted{
+		color: white;
+		position: fixed;
+		top: 20px;
+		font-size: 22px;
+		left: 13px;
+		text-align: center;
+		width: 2em;
+		background-color: black;
+		margin: auto;
+		cursor: pointer;
+		opacity: 0.5;
+	}
+		.textblock{
+		  position: relative;
+		  display: none; 
+		  max-width: 49.3%;
+			min-width: 49.3%;
+			width: 49.3%;
+			margin: 2px;
+
+		}
+		.textblockhead{
+			  position: relative;
+		  display: none; 
+		  max-width: 99%;
+			min-width: 99%;
+			width: 99%;
+			height: 100%;
+			
+		}
+		.editColors{
+	   	 	width: 95%;
+	   	 	font-size: 15px;
+	   	 	padding: 10px;
+	   	 	padding-right: 40px;
+
+
+		}
+		.editColors h1{
+	   	 	font-size: 20px;
+	   	 	width: 90%;
+			margin: auto;
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 10px;
+
+		}
+		.editColors input{
+	   	 	width: 100%;
+	   	 	height: 30px;
+
+		}
+			#closeColors{
+		width: 0; 
+		height: 0; 
+		display: block;
+		font-size: 18px;
+		text-align: right;
+		position: relative;
+		top: -65px;
+		left: 0;
+
+	}
+}
 
 

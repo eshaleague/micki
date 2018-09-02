@@ -122,18 +122,18 @@ if ($resultCheck >= 1) {
       //echo the title
       	if ($row['question'] === "!@#title!@#") {
       		if ($firstitle === "no") {
-      			echo"<div class='data-wrapper bg-color-one unit".$tableclass."'>
+      			echo"<div class='data-wrapper bg-color-one unit".$tableclass."'><div class='row-number'>".$row['reorder']."</div>
       		<div class='data-title bg-color-one'><div class='data'name=".$row['id'].">
       		".$row['answer']."<div class='edit'></div></div>
-      		<div class='textblock textblockhead'><div class='downcard'></div><div class='downcard'></div><div class='upcard'></div><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
+      		<div class='textblock textblockhead'><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
       		</div>";
       			$firstitle = "yes";
       			$tableclass = $tableclass + 1;
       		}else{
-      			echo"</div><div class='data-wrapper bg-color-one unit".$tableclass."'>
+      			echo"</div><div class='data-wrapper bg-color-one unit".$tableclass."'><div class='row-number'>".$row['reorder']."</div>
       		<div class='data-title bg-color-one'><div class='data'name=".$row['id'].">
       		".$row['answer']."<div class='edit'></div></div>
-      		<div class='textblock textblockhead'><div class='downcard'></div><div class='upcard'></div><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
+      		<div class='textblock textblockhead'><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
       		</div>";
       		$tableclass = $tableclass + 1;
       		}
@@ -142,9 +142,9 @@ if ($resultCheck >= 1) {
       	}
       //echo a header
       	else if($row['question'] === "!@#head!@#"){
-      		echo"<div class='data-heading bg-color-one'><div class='data'name=".$row['id'].">
+      		echo"<div class='data-heading bg-color-one'><div class='row-number'>".$row['reorder']."</div><div class='data'name=".$row['id'].">
       		".$row['answer'] ."<div class='edit'></div></div>
-      		<div class='textblock textblockhead'><div class='downcard'></div><div class='upcard'></div><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
+      		<div class='textblock textblockhead'><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
       		</div>";
       	}
       	else{
@@ -156,7 +156,7 @@ if ($resultCheck >= 1) {
       		if (strlen($row['questionimage']) > 4) {
       			$qimage = "<img src='./images/".$row['questionimage']."'>";
       		}
-      		echo "<div class='data-row'>
+      		echo "<div class='row-number'>".$row['reorder']."</div><div class='data-row'>
 					<div class='data-question' name=".$row['id'].">".$qimage.$row['question'] ."<div class='edit'></div></div>
 					<div class='textblock'><div class='addimagecard'>
 					<form action='./include/uploadimage.php' method='post' enctype='multipart/form-data'>
@@ -164,7 +164,7 @@ if ($resultCheck >= 1) {
 						<input style='display: none;' name='type'value='question'>
 					    <input type='file' name='file' >
 					    <input type='submit' value='upload' name='submit' >
-						</form></div><div class='downcard'></div><div class='upcard'></div><div class='deletecard'></div><div class='savecardquestion'></div><textarea name=".$row['id'].">".$row['question'] ."</textarea></div>
+						</form></div><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardquestion'></div><textarea name=".$row['id'].">".$row['question'] ."</textarea></div>
 					
 					<div class='data-answer' name=".$row['id'].">".$aimage.$row['answer'] ."<div class='edit'></div></div>
 					<div class='textblock'><div class='addimagecard'>
@@ -173,7 +173,7 @@ if ($resultCheck >= 1) {
 						<input style='display: none;' name='type'value='answer'>
 					    <input type='file' name='file' >
 					    <input type='submit' value='upload' name='submit'  >
-						</form></div><div class='downcard'></div><div class='upcard'></div><div class='deletecard'></div><div class='savecardanswer'></div><textarea name=".$row['id'].">".$row['answer'] ."</textarea></div>
+						</form></div><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswer'></div><textarea name=".$row['id'].">".$row['answer'] ."</textarea></div>
 					</div>";
       	}
  

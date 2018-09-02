@@ -156,6 +156,17 @@ function loadtableafterdelete(){
 			}
 		});
 }
+function changespot(prev, upda){
+  	$.ajax({
+			url: './ajax/editcard.php',
+			type: 'post',
+			data: {method: 'changespot', prev: prev, upda: upda},
+			success: function(data){;
+				loadtableafterdelete();
+			}
+		});
+}
+
 
 
 
@@ -183,6 +194,12 @@ $(document).on("click", ".edit", function(){
   	editcard(id, value, "answer");
     $(this).parent(".textblock").hide();
     $(this).parent(".textblock").prev(".data-answer").show();
+    
+  });
+   $(document).on("click", ".row-number-save", function(){
+   	var prev = $(this).prev("input").val();
+   	var upda = $(this).next("input").val();
+   	changespot(prev, upda);
     
   });
     $(document).on("click", ".savecardanswerhead", function(){

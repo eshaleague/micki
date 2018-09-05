@@ -111,6 +111,11 @@ echo'
 
 //Load the data
 include './include/dbh.inc.php';
+$sqo = "SELECT MAX(reorder) AS highest FROM $tableName ; ";
+			$result = mysqli_query($conn, $sqo);
+			if ($row = mysqli_fetch_assoc($result)){
+			     $highest =  $row['highest'];
+			}
 $sqr = "SELECT * FROM $tableName ORDER BY reorder ASC";
 $result = mysqli_query($conn, $sqr);
 $resultCheck= mysqli_num_rows($result);
@@ -125,7 +130,7 @@ if ($resultCheck >= 1) {
       			echo"<div class='data-wrapper bg-color-one unit".$tableclass."'><div class='row-number'>".$row['reorder']."</div>
       		<div class='data-title bg-color-one'><div class='data'name=".$row['id'].">
       		".$row['answer']."<div class='edit'></div></div>
-      		<div class='textblock textblockhead'><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
+      		<div class='textblock textblockhead'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
       		</div>";
       			$firstitle = "yes";
       			$tableclass = $tableclass + 1;
@@ -133,7 +138,7 @@ if ($resultCheck >= 1) {
       			echo"</div><div class='data-wrapper bg-color-one unit".$tableclass."'><div class='row-number'>".$row['reorder']."</div>
       		<div class='data-title bg-color-one'><div class='data'name=".$row['id'].">
       		".$row['answer']."<div class='edit'></div></div>
-      		<div class='textblock textblockhead'><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='1' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
+      		<div class='textblock textblockhead'><input type='number' style='display: none;' value='".$row['reorder']."'><div class='row-number-save'></div><input type='number' class='row-number-change' min='2' max='".$highest."' value='".$row['reorder']."'><div class='deletecard'></div><div class='savecardanswerhead'></div><textarea class='titleedit' name=".$row['id'].">".$row['answer'] ."</textarea></div>
       		</div>";
       		$tableclass = $tableclass + 1;
       		}

@@ -4,7 +4,7 @@ var hiddenquestion = 'no';
 var hiddenanswer = 'no';
 var edit = 'no';
 //toggle all questions button
-$(".button-questions").click(function(){
+$(".button-questions").on("click",function(){
 	if (hiddenquestion === 'no') {
 			$(this).children(".button-show-active").addClass("hider");
 			$(".data-question").addClass("hider");
@@ -18,7 +18,7 @@ $(".button-questions").click(function(){
 		
 	});
 //toggle all answers button	
-$(".button-answers").click(function(){
+$(".button-answers").on("click",function(){
 	if (hiddenanswer === 'no') {
 			$(this).children(".button-show-active").addClass("hider");
 			$(".data-answer").addClass("hider");
@@ -32,24 +32,20 @@ $(".button-answers").click(function(){
 		
 	});
 //hover to show answers
-$(".data-question").mouseenter(function() {
-    if (hiddenquestion === 'yes') {
-		$(this).removeClass("hider");
-	}
-}).mouseleave(function() {
-    if (hiddenquestion === 'yes') {
-		$(this).addClass("hider");
-	}
-});
-$(".data-answer").mouseenter(function() {
-    if (hiddenanswer === 'yes') {
-		$(this).removeClass("hider");
-	}
-}).mouseleave(function() {
-    if (hiddenanswer === 'yes') {
-		$(this).addClass("hider");
-	}
-});
+function activateHover(){
+	$(".data-question").on('mouseenter mouseleave', function() {
+	    if (hiddenquestion === 'yes') {
+			$(this).toggleClass("hider");
+		}
+	});
+
+	$(".data-answer").on('mouseenter mouseleave', function() {
+	    if (hiddenanswer === 'yes') {
+			$(this).toggleClass("hider");
+		}
+	});
+}
+activateHover();
 
 //functions
 function additems(type){
@@ -141,6 +137,7 @@ function loadunits(){
 			data: {method: 'loadunits'},
 			success: function(data){
 				$('#Units').html(data);
+				reloadDeselectUnits();
 				
 			}
 		});
@@ -239,7 +236,7 @@ $(".addTitle").on("click",  function(){
 
   });
 $(".addHead").on("click",  function(){
-  	additems('header');
+  	additems('head');
   	setTimeout(function () {
        $('html, body').scrollTop( $(document).height() );
     }, 200);
@@ -256,7 +253,7 @@ var highlighted = 0;
 document.getElementById("highlighted").innerHTML = highlighted;
 
 
-$(".highlight").click(function(){
+$(".highlight").on("click", function(){
 
 
 $(".data-question, .data-answer").hover(function(){
@@ -283,25 +280,31 @@ $(this).toggleClass("highlighter");
 });
 
 //hide units
-$(".UnitSelect").click(function(){
+$(".UnitSelect").on("click", function(){
 $(this).toggleClass("UnitOneUnselect");
 });
 
-$(".deselectUnit").click(function(){
+$(".deselectUnit").on("click", function(){
 $(".UnitSelect").addClass("UnitOneUnselect");
 });
 
-$(".data-wrapper").each(function(index){
-index = index + 1;
-$("#unit" +index ).click(function(){
+function reloadDeselectUnits(){
+	$(".data-wrapper").each(function(index){
+	index = index + 1;
+	$("#unit" +index ).click(function(){
 
-$(".unit" +index ).toggleClass("HideUnit");
-});
+	$(".unit" +index ).toggleClass("HideUnit");
+	});
 
-$(".deselectUnit").click(function(){
-$(".unit" +index ).addClass("HideUnit");
-});
-});
+	$(".deselectUnit").click(function(){
+	$(".unit" +index ).addClass("HideUnit");
+	});
+	});
+	modal();
+	activateHover();
+}
+reloadDeselectUnits();
+
 //set  heights of each to tallest
 
 

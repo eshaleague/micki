@@ -15,7 +15,7 @@ if (isset($_POST['method'])) {
 		$result = mysqli_query($conn, $sql);
 		$image = "";
      	 if ($row = mysqli_fetch_assoc($result)){
-     	 	if ($row[$type."image"] !== "") {
+     	 	if (!empty($row[$type."image"])) {
      	 		$image = "<img src='./images/".$row[$type."image"]."'>";
      	 	}
     		Echo $image.$row[$type];
@@ -31,7 +31,7 @@ if (isset($_POST['method'])) {
 			if ($row = mysqli_fetch_assoc($result)){
 			     $highest =  $row['highest'];
 			}
-			$sqr = "INSERT INTO $tableName (question, answer, reorder) VALUES ('•text', '•text', $highest + 1);";
+			$sqr = "INSERT INTO $tableName (question, answer, reorder) VALUES ('', '', $highest + 1);";
 			mysqli_query($conn, $sqr);
 	
 		}else{

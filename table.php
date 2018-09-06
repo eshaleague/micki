@@ -195,7 +195,7 @@ if ($resultCheck >= 1) {
 		<div class="addTitle">+Title</div>
 </div>
 <br><br>
-<script type="text/javascript" src="js/buttons.js"></script>
 <script type="text/javascript" src="js/modal.js"></script>
+<script type="text/javascript" src="js/buttons.js"></script>
 </body>
 </html>
